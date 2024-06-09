@@ -4,9 +4,9 @@
 import os
 import sys
 
-job_count = 20
+job_count = 4
 
-ids = open("ids.txt", "r").read().split(',')
+ids = open("ids.txt", "r").read().split(",")
 ids_len = len(ids)
 
 cjob = []
@@ -24,8 +24,16 @@ result += "\n"
 result += "```\n"
 result += "htext-miner\n"
 result += "\n"
-result += "total: " + str(summ) + "/" + str(ids_len) + \
-    " (" + str(summ / ids_len * 100) + "%)" + "\n"
+result += (
+    "total: "
+    + str(summ)
+    + "/"
+    + str(ids_len)
+    + " ("
+    + str(summ / ids_len * 100)
+    + "%)"
+    + "\n"
+)
 result += "\n"
 
 for i in range(job_count):
