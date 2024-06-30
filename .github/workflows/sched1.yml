@@ -20,9 +20,9 @@ jobs:
       - name: Reserve Job Index
         run: |
           git pull
-          python3 reserve-job.py 1
-          git add workspace/current_job1
-          git commit -m "reserve job 1"
+          python3 reserve-job.py 3
+          git add workspace/current_job3
+          git commit -m "reserve job 3"
           git pull
       - name: Push
         uses: ad-m/github-push-action@master
@@ -39,7 +39,7 @@ jobs:
           pip3 install easyocr
       - name: A
         run: |
-          python3 do-ocr.py 1
+          python3 do-ocr.py 3
       # - name: Upload
       #   uses: actions/upload-artifact@master
       #   with:
@@ -56,13 +56,13 @@ jobs:
       - name: Update History
         run: |
           git pull
-          python3 update-job.py 1 "${{ env.UPLOADURL }}"
+          python3 update-job.py 3 "${{ env.UPLOADURL }}"
       - name: Revision
         run: |
-          git add workspace/history-1.txt
+          git add workspace/history-3.txt
           git add result/
           git add .github/
-          git commit -m "update job 1"
+          git commit -m "update job 3"
           git pull
       - name: Push
         id: trypush
